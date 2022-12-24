@@ -14,6 +14,7 @@ sequenceDiagram
   server -->> browser: main.js
   browser ->> server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
   server -->> browser: data.json
+  note over browser: browser executes event handler that renders updated notes to display
   
 
 ```
