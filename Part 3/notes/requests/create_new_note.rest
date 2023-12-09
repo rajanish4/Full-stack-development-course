@@ -2,9 +2,11 @@ POST http://localhost:3001/api/notes/
 Content-Type: application/json
 
 {
-    "content": "VS code rest client is preferable",
-    "important": true
+    "content": "Testing if it works",
+    "important": false
 }
 
 ###
 GET http://localhost:3001/api/notes/
+###
+DELETE http://localhost:3001/api/notes/655cf807a12fd3a37a9429d3
