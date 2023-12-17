@@ -1,0 +1,1 @@
+the build is coming from part2/examples 2, contains frontend static js and html 

@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(requestLogger)
 
 app.get('/', (request, response) => {
-response.send('<h1>Hello World!</h1>')
+  response.send('<h1>Hello World!</h1>')
 })
 
 app.get('/api/notes', (request, response) => {
@@ -36,15 +36,15 @@ app.get('/api/notes/:id', (request, response, next) => {
       response.status(404).end()
     }
   })
-  .catch(error => next(error))
+    .catch(error => next(error))
 })
 
 app.delete('/api/notes/:id', (request, response, next) => {
-    Note.findByIdAndDelete(request.params.id)
-      .then(result => {
-        response.status(204).end()
-      })
-      .catch(error => next(error))
+  Note.findByIdAndDelete(request.params.id)
+    .then(result => {
+      response.status(204).end()
+    })
+    .catch(error => next(error))
 })
 
 app.post('/api/notes', (request, response, next) => {
@@ -65,7 +65,7 @@ app.post('/api/notes', (request, response, next) => {
 app.put('/api/notes/:id', (request, response, next) => {
   const { content, important } = request.body
 
-  Note.findByIdAndUpdate(request.params.id, {content, important}, { new: true, runValidators:true, context:'query' })
+  Note.findByIdAndUpdate(request.params.id, { content, important }, { new: true, runValidators:true, context:'query' })
     .then(updatedNote => {
       response.json(updatedNote)
     })
@@ -92,5 +92,5 @@ app.use(errorHandler)
 
 const PORT = process.env.PORT// || 3001
 app.listen(PORT, () => {
-console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port ${PORT}`)
 })
